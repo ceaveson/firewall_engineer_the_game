@@ -1,0 +1,50 @@
+
+█▀▀ █ █▀█ █▀▀ █░█░█ ▄▀█ █░░ █░░   █▀▀ █▄░█ █▀▀ █ █▄░█ █▀▀ █▀▀ █▀█   ▀█▀ █░█ █▀▀   █▀▀ ▄▀█ █▀▄▀█ █▀▀ █
+█▀░ █ █▀▄ ██▄ ▀▄▀▄▀ █▀█ █▄▄ █▄▄   ██▄ █░▀█ █▄█ █ █░▀█ ██▄ ██▄ █▀▄   ░█░ █▀█ ██▄   █▄█ █▀█ █░▀░█ ██▄ ▄
+
+1. Summary
+2. Example rules
+
+_________
+Section 1
+
+    Summary
+
+You are a firwall engineer. With tickets coming in to the service desk with requests to open
+ports on the firewall, you must quickly choose the rule implimentation which gives the most limited
+access.
+
+_________
+Section 2
+
+    Examples
+
+example 1
+Give least amount of IP addresses access
+a. 10.2.3.[10-20]
+b. 10.2.3.0/29
+
+a. 8.8.8.8, 8.8.4.4, 1.2.3.[0-3]
+b. 8.8.8.8/30
+
+a. 5.5.[4-12].[0-255]
+b. 5.5.4.0/20
+
+example 2
+Give acces on the following ports:
+HTTPS
+a. 443
+b. 445
+
+NTP
+a. 111
+b. 123
+
+SIP
+a. 5066
+b. 5060
+
+example 3
+Give acces to the public IP
+a. 172.16.0.1
+b. 192.169.0.1
