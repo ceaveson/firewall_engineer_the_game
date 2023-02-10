@@ -10,9 +10,9 @@ Section 1
 
     Summary
 
-You are a firwall engineer. With tickets coming in to the service desk with requests to open
-ports on the firewall, you must quickly choose the rule implimentation which gives the most limited
-access.
+You are a firewall engineer. With tickets coming in to the service desk for requests to open
+access through the firewall, you must quickly choose the rule implementation which gives the most limited
+access!
 
 _________
 Section 2
