@@ -25,7 +25,6 @@ number_of_questions = 10
 score = 0
 
 while number_of_questions > 0:
-    print(i for i in range(0, number_of_questions))
     answer = 'c'
     accepted_answers = ['a','b']
     question = smallest_ip_range()
@@ -40,7 +39,7 @@ while number_of_questions > 0:
 
 if score ==10:
     print(f"You scored {score} out of 10!")
-elif score in range(5,9):
+elif score in range(6,9):
     print(f"You scored {score} out of 10, not too bad...")
-elif score < 5:
+elif score < 6:
     print(f"You scored {score} out of 10... Your P45 is waiting for you")
