@@ -1,5 +1,9 @@
-from games import smallest_ip_range
+from games import smallest_ip_range, match_port_and_service
+import os
+from random import choice
 
+games = [smallest_ip_range, match_port_and_service]
+os.system('clear')
 print("""
 █▀▀ █ █▀█ █▀▀ █░█░█ ▄▀█ █░░ █░░  
 █▀░ █ █▀▄ ██▄ ▀▄▀▄▀ █▀█ █▄▄ █▄▄  
@@ -16,26 +20,21 @@ They must all be completed before the big PEN test.
 
 Go Go Go!
 
-Press enter to start
+Press "enter" to start
 """)
 
 input()
+os.system('clear')
 
 number_of_questions = 10
 score = 0
 
 while number_of_questions > 0:
-    answer = 'c'
-    accepted_answers = ['a','b']
-    question = smallest_ip_range()
-    print('Give least amount of IP addresses access')
-    print(f'a: {question[0]}')
-    print(f'b: {question[1]}')
-    while answer not in accepted_answers:
-        answer = input('Answer either \'a\' or \'b\':')
-    if answer == question[2]:
+    answer = choice(games)()
+    if answer == True:
         score += 1
     number_of_questions -= 1
+    os.system('clear')
 
 if score ==10:
     print(f"You scored {score} out of 10!")

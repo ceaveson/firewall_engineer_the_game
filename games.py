@@ -1,6 +1,8 @@
 from random import randint, choice
 
 def smallest_ip_range():
+    answer = 'c'
+    accepted_answers = ['a','b']
     prefix_len = randint(24, 30)
     ip_prefix_amount = 2 ** (32 - prefix_len)
     ip_range_amount = 0
@@ -15,7 +17,14 @@ def smallest_ip_range():
     else:
         answer = "b"
     first_three_octects = f"{randint(1,254)}.{randint(1,254)}.{randint(1,254)}"
-    return [f"{first_three_octects}.0/{prefix_len}", f"{first_three_octects}.[0-{ip_range_amount}]", answer]
+    question = [f"{first_three_octects}.0/{prefix_len}", f"{first_three_octects}.[0-{ip_range_amount}]", answer]
+
+    print('Give least amount of IP addresses access')
+    print(f'a: {question[0]}')
+    print(f'b: {question[1]}')
+    answer = input('Answer either \'a\' or \'b\':')
+    if answer == question[2]:
+        return True
 
 
 def match_port_and_service():
@@ -31,22 +40,15 @@ def match_port_and_service():
         service_ports.append(port_dict)
     possible_answers = []
     while len(possible_answers) < 4:
-        a = randint(1, len(service_ports))
-        if a not in possible_answers:
-            possible_answers.append(a)
+        i = randint(1, len(service_ports))
+        if i not in possible_answers:
+            possible_answers.append(i)
     possible_answers_list = []
     for item in possible_answers:
         possible_answers_list.append(service_ports[item-1]['port'])
     answer = service_ports[choice(possible_answers)-1]
-    return {'possbile_answers' : possible_answers, 'answer' : answer}
-
-
-print(match_port_and_service())
-
-# for p in a:
-#     print(f"""
-#     {p['port']}
-#     {p['protocol']}
-#     {p['name']}
-#     {p['description']}
-#     """)
+    print(f"Which of the following service ports does {answer['name']} use:\n")
+    answers_map = {'a' : 0, 'b' : 1, 'c' : 2, 'd' : 3}
+    user_choice = input(f"Possible Answers: a. {possible_answers_list[0]}, b. {possible_answers_list[1]}, c. {possible_answers_list[2]} d. {possible_answers_list[3]}\nYour answer:")
+    if possible_answers_list[answers_map[user_choice]] == answer['port']:
+        return True
