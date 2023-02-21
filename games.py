@@ -19,15 +19,18 @@ def smallest_ip_range():
     first_three_octects = f"{randint(1,254)}.{randint(1,254)}.{randint(1,254)}"
     question = [f"{first_three_octects}.0/{prefix_len}", f"{first_three_octects}.[0-{ip_range_amount}]", answer]
 
-    print('Give least amount of IP addresses access')
+    print('Give least amount of IP addresses access\n')
     print(f'a: {question[0]}')
     print(f'b: {question[1]}')
     answer = input('Answer either \'a\' or \'b\':')
+    while answer not in accepted_answers:
+        answer = input('Answer either \'a\' or \'b\':')
     if answer == question[2]:
         return True
 
 
 def match_port_and_service():
+    accepted_answers = ['a','b','c','d']
     service_ports = []
     with open('popular_ports.txt') as f:
         ports_list = f.readlines()
@@ -50,5 +53,7 @@ def match_port_and_service():
     print(f"Which of the following service ports does {answer['name']} use:\n")
     answers_map = {'a' : 0, 'b' : 1, 'c' : 2, 'd' : 3}
     user_choice = input(f"Possible Answers: a. {possible_answers_list[0]}, b. {possible_answers_list[1]}, c. {possible_answers_list[2]} d. {possible_answers_list[3]}\nYour answer:")
+    while user_choice not in accepted_answers:
+        user_choice = input(f"Possible Answers: a. {possible_answers_list[0]}, b. {possible_answers_list[1]}, c. {possible_answers_list[2]} d. {possible_answers_list[3]}\nYour answer:")
     if possible_answers_list[answers_map[user_choice]] == answer['port']:
         return True
